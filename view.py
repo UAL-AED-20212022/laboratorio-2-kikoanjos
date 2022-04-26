@@ -13,6 +13,7 @@ def main():
         if commands[0] == "RPI":
             lista_paises.insert_at_start(commands[1])
         if commands[0] == "RPF":
+            lista_paises.insert_at_end(commands[1])
             pass
         if commands[0] == "RPDE":
             pass
