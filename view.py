@@ -1,6 +1,4 @@
-import controller
-import model
-from models import LinkedList
+from models.LinkedList import LinkedList
 
 def main():
     lista_paises = LinkedList()
@@ -12,42 +10,40 @@ def main():
 
         if commands[0] == "RPI":
             lista_paises.insert_at_start(commands[1])
+            lista_paises.traverse_list()
+
         if commands[0] == "RPF":
             lista_paises.insert_at_end(commands[1])
-            pass
+            lista_paises.traverse_list()
+
         if commands[0] == "RPDE":
-            pass
+            lista_paises.insert_after_item(commands[1], commands[2])
+            lista_paises.traverse_list()
+
         if commands[0] == "RPAE":
-            pass
+            lista_paises.insert_before_item(commands[1], commands[2])
+            lista_paises.traverse_list()
         if commands[0] == "RPII":
-            pass
+            lista_paises.insert_at_index(int(commands[2]), commands[1])
+            lista_paises.traverse_list()
+
         if commands[0] == "VNE":
-            pass
+            print(f"O número de elementos são {lista_paises.get_count()}.")
+
         if commands[0] == "VP":
-            pass
+            resultado = lista_paises.search_item(commands[1])
+            if resultado == False:
+                print(f"O país {commands[1]} não se encontra na lista.")
+            else:
+                print(f"O país {commands[1]} encontra-se na lista.")
+
         if commands[0] == "EPE":
-            pass
+            lista_paises.delete_at_start()
+            print(f"O país {commands[1]} foi eliminado da lista.")
+
         if commands[0] == "EUE":
-            pass
+            lista_paises.delete_at_end(commands[1])
+            print(f"O país {commands[1]} foi eliminado da lista.")
+
         if commands[0] == "EP":
-            pass
-def registar_pais_inicio():
-    pass
-def registar_pais_fim():
-    pass
-def registar_pais_depois_de_outro():
-    pass
-def registar_pais_antes_de_outro():
-    pass
-def registar_pais_num_local_especifico():
-    pass
-def verificar_numero_elementos():
-    pass
-def verificar_pais_na_lista():
-    pass
-def eliminar_primeiro_pais():
-    pass
-def eliminar_ultimo_pais():
-    pass
-def eliminar_pais_especifico():
-    pass
+            lista_paises.delete_element_by_value(commands[1])
